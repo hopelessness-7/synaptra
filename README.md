@@ -111,6 +111,16 @@ Modules/
 
 ---
 
+## 🧾 Текущие коммиты (Commit Activity)
+
+| Name   | Branch    | Commit Description                                           | Status     |
+|--------|-----------|-------------------------------------------------------------|------------|
+| SA01   | `sa01`    | Обновлена логика onboarding, возможность создать проект и доску | 🔧 В процессе |
+
+> 📌 **Формат названия веток:** `SAxx`, где `SA` — от *Synaptra*, а `xx` — номер задачи. Таблица фиксирует два завершённых коммита и один текущий в работе, чтобы наглядно отслеживать прогресс.
+
+---
+
 ## 📬 Контакты
 
 Создатель: [Egor Titov](mailto:titov.ggg2017@yandex.ru)
@@ -222,6 +232,16 @@ Modules/
 - 🧠 AI tailored to your team.
 - 🌐 Unified ecosystem without scattered tools.
 - 🧩 On-prem deployment for full control and security.
+
+---
+
+## 🧾 Commit Activity
+
+| Name   | Branch    | Commit Description                                           | Status     |
+|--------|-----------|-------------------------------------------------------------|------------|
+| SA01   | `sa01`    | Updated onboarding logic, added ability to create project and board | 🔧 In progress |
+
+> 📌 **Branch name format:** `SAxx`, where `SA` stands for *Synaptra* and `xx` is the task number. The table shows two recent closed commits and the current one in progress to track development progress clearly.
 
 ---
 

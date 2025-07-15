@@ -34,7 +34,7 @@
                 <label for="slug" class="block font-semibold mb-1">Project Slug</label>
                 <input id="slug" name="slug" type="text"
                        class="gradient-border-input @error('slug') error @enderror"
-                       value="{{ old('slug') }}" required>
+                       value="{{ old('slug') }}">
                 @error('slug')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
@@ -52,7 +52,7 @@
 
         <div class="mb-6">
             <label for="git_repo_url" class="block font-semibold mb-1">Git Repository URL (optional)</label>
-            <input id="git_repo_url" name="git_repo_url" type="url"
+            <input id="git_repo_url" name="git_repo_url" type="text"
                    class="gradient-border-input @error('git_repo_url') error @enderror"
                    value="{{ old('git_repo_url') }}">
             @error('git_repo_url')

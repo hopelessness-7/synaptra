@@ -2,10 +2,6 @@
 
 @section('content')
     <div class="flex flex-col lg:flex-row gap-8">
-        @if(!auth()->user()->projectMembers()->exists())
-            @livewire('project.create-modal')
-        @endif
-
         <!-- Левая колонка -->
         <div class="flex-1 space-y-8">
             <!-- Welcome & Summary -->

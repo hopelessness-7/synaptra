@@ -8,6 +8,8 @@ class OnboardingController extends Controller
 {
     public function __invoke($step)
     {
-        return view('onboarding.' . $step);
+        $model = session('model');
+
+        return view('onboarding.' . $step, compact('model'));
     }
 }

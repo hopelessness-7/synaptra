@@ -42,6 +42,12 @@
             <label for="is_default" class="font-semibold select-none">Make this board the default</label>
         </div>
 
+        {{$model?->id}}
+
+        <div class="mb-6 flex items-center space-x-2">
+            <input id="project_id" name="project_id" type="text" hidden value="{{$model?->id}}" class="gradient-border-input">
+        </div>
+
         <button type="submit"
                 class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-pink-500 text-white font-bold py-3 rounded-xl shadow-md transition transform hover:scale-105">
             Create Board
