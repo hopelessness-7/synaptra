@@ -13,14 +13,15 @@ class UserShowResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'role' => $this->role?->name,
+            'id'    => $this->id,
+            'name'  => $this->name,
+            'role'  => $this->role?->name,
+            'email' => $this->email,
 
 
             'projects' =>  $this->projects->map(function ($project) {
                 return [
-                    'id' => $project->id,
+                    'id'   => $project->id,
                     'name' => $project->name,
                     'slug' => $project->slug,
                 ];

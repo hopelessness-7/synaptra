@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\UserStatusEnum;
+use App\Modules\Auth\Infrastructure\Models\LoginHistory;
 use App\Modules\Auth\Infrastructure\Models\UserDevice;
 use App\Modules\Common\Domain\Enums\OnboardingStep;
 use App\Modules\Common\Domain\Traits\Searchable;
@@ -83,6 +84,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->onboarding_step
             ? OnboardingStep::from($this->onboarding_step)
             : null;
+    }
+
+    public function getHistoryLogin(): HasMany
+    {
+        return $this->hasMany(LoginHistory::class);
     }
 
     public function role(): BelongsTo

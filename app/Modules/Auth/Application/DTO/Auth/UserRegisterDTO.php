@@ -12,6 +12,7 @@ class UserRegisterDTO extends BaseDTO
     public string $name;
     public string $userAgent;
     public string $ipAddress;
+    public ?int $role_id;
 
 
     public function forUserCreation(): array
@@ -20,6 +21,7 @@ class UserRegisterDTO extends BaseDTO
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
+            'role_id' =>  $this->role_id ?? null,
         ];
     }
 
