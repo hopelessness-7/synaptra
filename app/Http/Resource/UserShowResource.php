@@ -15,6 +15,16 @@ class UserShowResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'role' => $this->role?->name,
+
+
+            'projects' =>  $this->projects->map(function ($project) {
+                return [
+                    'id' => $project->id,
+                    'name' => $project->name,
+                    'slug' => $project->slug,
+                ];
+            }),
         ];
     }
 }

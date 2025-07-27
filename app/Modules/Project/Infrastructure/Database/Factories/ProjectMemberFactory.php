@@ -5,9 +5,7 @@ namespace App\Modules\Project\Infrastructure\Database\Factories;
 use App\Models\User;
 use App\Modules\Project\Domain\Enums\GradeEnum;
 use App\Modules\Project\Domain\Enums\SpecializationEnum;
-use App\Modules\Project\Infrastructure\Models\Project;
 use App\Modules\Project\Infrastructure\Models\ProjectMember;
-use App\Modules\Project\Infrastructure\Models\ProjectRole;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 

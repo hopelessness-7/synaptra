@@ -17,13 +17,12 @@
     @php
         $grades = \App\Modules\Project\Domain\Enums\GradeEnum::toArray();
         $specializations = \App\Modules\Project\Domain\Enums\SpecializationEnum::toArray();
-        $roles = \App\Modules\Project\Infrastructure\Models\ProjectRole::all();
     @endphp
 
     <form method="POST" action="{{ route('onboarding.step.next', ['step' => 'save_manual_users']) }}">
         @csrf
 
-        <x-user-form :roles="$roles" :grades="$grades" :specializations="$specializations" />
+        <x-user-form :grades="$grades" :specializations="$specializations" />
 
         <button type="submit"
                 class="mt-6 w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-pink-500 text-white font-bold py-3 rounded-xl shadow-md transition transform hover:scale-105">

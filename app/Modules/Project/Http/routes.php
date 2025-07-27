@@ -5,14 +5,12 @@ use Modules\Project\Http\Controllers\Api\V1\MemberMetricController;
 use Modules\Project\Http\Controllers\Api\V1\MemberSkillController;
 use Modules\Project\Http\Controllers\Api\V1\ProjectController;
 use Modules\Project\Http\Controllers\Api\V1\ProjectMemberController;
-use Modules\Project\Http\Controllers\Api\V1\ProjectRoleController;
 
 Route::prefix('api/v1')->middleware('auth.api')->group(function () {
 
     // Общее определение CRUD маршрутов
     $resources = [
         'projects' => ProjectController::class,
-        'projects/roles' => ProjectRoleController::class,
         'projects/members' => ProjectMemberController::class,
         'projects/members/skills' => MemberSkillController::class,
         'projects/members/metrics' => MemberMetricController::class,

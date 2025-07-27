@@ -14,7 +14,6 @@ class CreateRequest extends BaseFormRequest
         return [
             'project_id'      => ['required', 'integer', 'exists:projects,id'],
             'user_id'         => ['required', 'integer', 'exists:users,id'],
-            'role_id'         => ['required', 'integer', 'exists:roles,id'],
             'grade'           => ['required', 'string', new Enum(GradeEnum::class)],
             'specialization'  => ['required', 'string', new Enum(SpecializationEnum::class)],
             'load'            => ['sometimes', 'numeric', 'max:255'],

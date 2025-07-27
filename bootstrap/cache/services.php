@@ -41,6 +41,7 @@
     37 => 'Modules\\Project\\Providers\\ProjectServiceProvider',
     38 => 'Modules\\Kanban\\Providers\\KanbanServiceProvider',
     39 => 'Modules\\Common\\Providers\\CommonServiceProvider',
+    40 => 'Modules\\AccessControl\\Providers\\AccessControlServiceProvider',
   ),
   'eager' => 
   array (
@@ -69,6 +70,7 @@
     22 => 'Modules\\Project\\Providers\\ProjectServiceProvider',
     23 => 'Modules\\Kanban\\Providers\\KanbanServiceProvider',
     24 => 'Modules\\Common\\Providers\\CommonServiceProvider',
+    25 => 'Modules\\AccessControl\\Providers\\AccessControlServiceProvider',
   ),
   'deferred' => 
   array (
