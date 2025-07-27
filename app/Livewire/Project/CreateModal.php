@@ -8,7 +8,6 @@ use App\Modules\Project\Application\UseCases\Project\Create as ProjectCreate;
 use App\Modules\Project\Application\UseCases\ProjectMember\Create as MemberCreate;
 use App\Modules\Project\Domain\Enums\GradeEnum;
 use App\Modules\Project\Domain\Enums\SpecializationEnum;
-use App\Modules\Project\Infrastructure\Repositories\Eloquent\ProjectRoleRepository;
 use Livewire\Component;
 use Livewire\Features\SupportRedirects\Redirector;
 use Modules\Project\Http\Requests\Project\CreateRequest;
@@ -36,7 +35,6 @@ class CreateModal extends Component
         $dto = (ProjectDTO::class)::fromArray($data);
 
         $project = app(ProjectCreate::class)->create($dto);
-        $role = app(ProjectRoleRepository::class)->where('name', 'Project Manager')->queryFirst();
 
 
         $memberDto = (ProjectMemberDTO::class)::fromArray([
@@ -44,7 +42,6 @@ class CreateModal extends Component
             'user_id' => auth()->id(),
             'grade' => GradeEnum::Lead,
             'specialization' => SpecializationEnum::PM,
-            'role_id' =>  $role?->id ?? 4,
         ]);
 
         app(MemberCreate::class)->create($memberDto);

@@ -14,15 +14,6 @@
         </div>
 
         <div>
-            <label class="block font-semibold mb-1">Role</label>
-            <select x-model="newUser.role" class="gradient-border-input w-full">
-                <template x-for="role in roles" :key="role.id">
-                    <option :value="role.id" x-text="role.name"></option>
-                </template>
-            </select>
-        </div>
-
-        <div>
             <label class="block font-semibold mb-1">Grade</label>
             <select x-model="newUser.grade" class="gradient-border-input w-full">
                 <template x-for="grade in grades">
@@ -56,7 +47,6 @@
                 <tr>
                     <th class="border px-3 py-2 text-left">Full Name</th>
                     <th class="border px-3 py-2 text-left">Email</th>
-                    <th class="border px-3 py-2 text-left">Role</th>
                     <th class="border px-3 py-2 text-left">Grade</th>
                     <th class="border px-3 py-2 text-left">Specialization</th>
                     <th class="border px-3 py-2 text-left">Actions</th>
@@ -67,7 +57,6 @@
                     <tr>
                         <td class="border px-3 py-2" x-text="user.full_name"></td>
                         <td class="border px-3 py-2" x-text="user.email"></td>
-                        <td class="border px-3 py-2" x-text="user.role"></td>
                         <td class="border px-3 py-2" x-text="user.grade"></td>
                         <td class="border px-3 py-2" x-text="user.specialization"></td>
                         <td class="border px-3 py-2">
@@ -91,11 +80,9 @@
             newUser: {
                 full_name: '',
                 email: '',
-                role: '',
                 grade: '',
                 specialization: '',
             },
-            roles: @json($roles ?? [['id' => 1, 'name' => 'Developer']]),
             grades: @json($grades ?? ['intern']),
             specializations: @json($specializations ?? ['frontend']),
             addUser() {
@@ -104,7 +91,6 @@
                 this.newUser = {
                     full_name: '',
                     email: '',
-                    role: '',
                     grade: '',
                     specialization: '',
                 };

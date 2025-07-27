@@ -12,7 +12,6 @@ return new class extends Migration {
 
             $table->foreignId('project_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('role_id')->constrained('project_roles')->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->enum('grade', ['intern', 'junior', 'middle', 'senior', 'lead']);
             $table->enum('specialization', ['frontend', 'backend', 'fullstack', 'qa', 'devops', 'pm']);

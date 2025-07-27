@@ -76,7 +76,6 @@
                     <th class="border border-gray-300 px-3 py-2 text-left">Email</th>
                     <th class="border border-gray-300 px-3 py-2 text-left">Grade</th>
                     <th class="border border-gray-300 px-2 py-2 text-left">Specialization</th>
-                    <th class="border border-gray-300 px-3 py-2 text-left">Role</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -95,13 +94,6 @@
                             <select name="users[{{ $index }}][specialization]" class="w-full border rounded px-2 py-1">
                                 @foreach($specializations as $specialization)
                                     <option value="{{ $specialization }}">{{ $specialization }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td class="border border-gray-300 px-3 py-2">
-                            <select name="users[{{ $index }}][role]" class="w-full border rounded px-2 py-1">
-                                @foreach($roles as $role)
-                                    <option value="{{ $role['id'] }}">{{ $role['name'] }}</option>
                                 @endforeach
                             </select>
                         </td>

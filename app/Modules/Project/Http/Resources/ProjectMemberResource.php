@@ -2,10 +2,10 @@
 
 namespace Modules\Project\Http\Resources;
 
+use App\Http\Resource\UserShowResource;
 use App\Modules\Project\Infrastructure\Models\ProjectMember;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\Auth\Http\Resources\UserResource;
 
 /** @mixin ProjectMember */
 class ProjectMemberResource extends JsonResource
@@ -20,8 +20,7 @@ class ProjectMemberResource extends JsonResource
             'is_available'   => $this->is_available,
 
             'project'        => new ProjectResource($this->whenLoaded('project')),
-            'user'           => new UserResource($this->whenLoaded('user')),
-            'role'           => new ProjectRoleResource($this->whenLoaded('role')),
+            'user'           => new UserShowResource($this->whenLoaded('user')),
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Modules\Auth\Application\UseCases\Auth;
 
 use App\Models\User;
+use App\Modules\AccessControl\Infrastructure\Repositories\Eloquent\RoleRepository;
 use App\Modules\Auth\Application\DTO\Auth\UserDeviceDTO;
 use App\Modules\Auth\Application\DTO\Auth\UserRegisterDTO;
 use App\Modules\Auth\Infrastructure\Repositories\Eloquent\UserDeviceRepository;
@@ -14,11 +15,15 @@ readonly class Register
     public function __construct(
         private UserRepository $userRepository,
         private UserDeviceRepository $userDeviceRepository,
+        private RoleRepository $roleRepository,
     ){}
 
     public function execute(UserRegisterDTO $dto): User
     {
-        $user = $this->userRepository->create($dto->forUserCreation());
+        $userData = $dto->forUserCreation();
+        $userData['role_id'] = $this->roleRepository->where('name', 'admin')->queryFirst()?->id;
+
+        $user = $this->userRepository->create($userData);
 
         $deviceData = $dto->forDeviceCreation();
         $deviceName = UserAgentParser::parse($deviceData['userAgent']);

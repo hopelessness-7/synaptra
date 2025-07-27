@@ -8,6 +8,7 @@ use App\Modules\Auth\Providers\ExceptionServiceProvider;
 use App\Modules\Common\Providers\SearchServiceProvider;
 use App\Repositories\Cache\CacheRepository;
 use Illuminate\Support\ServiceProvider;
+use Modules\AccessControl\Providers\AccessControlServiceProvider;
 use Modules\Common\Providers\CommonServiceProvider;
 use Modules\Kanban\Providers\KanbanServiceProvider;
 use Modules\Project\Providers\ProjectServiceProvider;
@@ -33,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register(ProjectServiceProvider::class);
 
         $this->app->register(KanbanServiceProvider::class);
+
+        $this->app->register(AccessControlServiceProvider::class);
     }
 
     /**

@@ -3,12 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Modules\Auth\Infrastructure\Models\UserDevice;
 use App\Modules\Kanban\Domain\Enums\RelationTypeEnum;
 use App\Modules\Project\Infrastructure\Models\Project;
 use App\Modules\Project\Infrastructure\Models\ProjectMember;
-use App\Modules\Project\Infrastructure\Models\ProjectRole;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -38,20 +36,6 @@ class DatabaseSeeder extends Seeder
         // 2. Projects
         Project::factory()->count(250)->create();
         $projects = Project::all();
-
-        // 3. Roles
-        $roles = [
-            ['name' => 'Developer', 'description' => 'Developer'],
-            ['name' => 'Senior Developer', 'description' => 'Senior Developer'],
-            ['name' => 'Middle Developer', 'description' => 'Middle Developer'],
-            ['name' => 'Project Manager', 'description' => 'Project Manager'],
-        ];
-
-        foreach ($roles as $role) {
-            ProjectRole::create($role);
-        }
-
-        $roles = ProjectRole::all();
 
         // 4. User devices
         foreach ($users as $user) {
@@ -94,7 +78,6 @@ class DatabaseSeeder extends Seeder
                 ProjectMember::factory()->create([
                     'project_id' => $project->id,
                     'user_id' => $user->id,
-                    'role_id' => $roles->random()->id,
                 ]);
             }
         }

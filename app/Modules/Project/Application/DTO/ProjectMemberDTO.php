@@ -11,7 +11,6 @@ class ProjectMemberDTO extends BaseDTO
     public ?int $id;
     public  int $project_id;
     public  int $user_id;
-    public  int $role_id;
     public  GradeEnum $grade;
     public  SpecializationEnum $specialization;
     public  ?float $load;

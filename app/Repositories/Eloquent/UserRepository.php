@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Enums\UserStatusEnum;
 use App\Models\User;
 use App\Traits\HandlesDTO;
+use Modules\AccessControl\Infrastructure\Models\Role;
 
 class UserRepository extends BaseRepository
 {
@@ -72,5 +73,12 @@ class UserRepository extends BaseRepository
     public function setReAuthRequired(int|string $idOrEmail): ?User
     {
         return $this->findAndSetStatus($idOrEmail, UserStatusEnum::RequiresReauth);
+    }
+
+    public function attachRoleToUser(Role $role, int $userId): User
+    {
+        $user = $this->find($userId)?->update(['role_id' => $role->id]);
+
+        return $user;
     }
 }

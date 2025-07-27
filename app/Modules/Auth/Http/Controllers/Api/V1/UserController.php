@@ -3,9 +3,9 @@
 namespace App\Modules\Auth\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\MainApiController;
+use App\Http\Resource\UserShowResource;
 use App\Modules\Auth\Application\UseCases\User\Show;
 use Illuminate\Http\Request;
-use Modules\Auth\Http\Resources\UserResource;
 
 class UserController extends MainApiController
 {
@@ -19,7 +19,7 @@ class UserController extends MainApiController
         $user = $this->show->execute($id);
 
         return $this->success([
-            ...UserResource::make($user)->toArray($request),
+            ...UserShowResource::make($user)->toArray($request),
         ]);
     }
 }
