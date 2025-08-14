@@ -3,7 +3,7 @@
 @section('content')
     {{-- Progress bar и остальные твои элементы --}}
     <div class="flex flex-col mb-6 space-y-2">
-        <span class="text-center text-sm font-mediumtext-gray-600">Step 0 of 4</span>
+        <span class="text-center text-sm font-mediumtext-gray-600">Step 0 of 3</span>
         <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
             <div class="bg-indigo-500 h-2 transition-all duration-500" style="width: 0%;"></div>
         </div>

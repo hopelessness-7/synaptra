@@ -37,8 +37,9 @@ class StepManager
         return match ($step) {
             OnboardingStep::Welcome->value => OnboardingStep::CreateProject,
             OnboardingStep::CreateProject->value => OnboardingStep::CreateBoard,
-            OnboardingStep::InviteTeam->value => OnboardingStep::InviteTeam,
-            default => null,
+            OnboardingStep::CreateBoard->value => OnboardingStep::InviteTeam,
+            OnboardingStep::InviteTeam->value, OnboardingStep::Finish->value => OnboardingStep::Finish,
+            default => throw new \InvalidArgumentException("Unknown onboarding step: {$step}"),
         };
     }
 }

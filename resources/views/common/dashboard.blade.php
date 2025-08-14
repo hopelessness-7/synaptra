@@ -6,7 +6,7 @@
         <div class="flex-1 space-y-8">
             <!-- Welcome & Summary -->
             <section>
-                <h2 class="text-2xl font-semibold mb-2">Welcome back, {{ auth()->user()->name  }}!</h2>
+                <h2 class="text-2xl font-semibold mb-2">Welcome back, {{ auth()->user()->name }}!</h2>
                 <p class="text-gray-600">You have 3 tasks due today and 1 upcoming deadline.</p>
             </section>
 

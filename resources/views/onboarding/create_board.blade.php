@@ -42,8 +42,6 @@
             <label for="is_default" class="font-semibold select-none">Make this board the default</label>
         </div>
 
-        {{$model?->id}}
-
         <div class="mb-6 flex items-center space-x-2">
             <input id="project_id" name="project_id" type="text" hidden value="{{$model?->id}}" class="gradient-border-input">
         </div>

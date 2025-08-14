@@ -4,7 +4,7 @@
 @section('content')
     {{-- Progress bar --}}
     <div class="flex flex-col mb-6 space-y-2">
-        <span class="text-center text-sm font-medium text-gray-600">Step 5 of 5</span>
+        <span class="text-center text-sm font-medium text-gray-600">Step 3 of 3</span>
         <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
             <div class="bg-indigo-500 h-2 transition-all duration-500" style="width: 100%;"></div>
         </div>
@@ -16,8 +16,14 @@
     </p>
 
     {{-- Форма загрузки Excel --}}
-    <form method="POST" action="{{ route('onboarding.step.next', ['step' => 'import_users']) }}" enctype="multipart/form-data" class="mb-6">
+    <form method="POST" action="{{ route('users.import') }}" enctype="multipart/form-data" class="mb-6">
         @csrf
+
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
 
         <div class="flex items-center space-x-4 mb-4">
             <label
@@ -44,72 +50,46 @@
                 />
             </label>
 
+            <input id="project_id" name="project_id" type="text" hidden value="{{$model?->project_id ?? old('project_id')}}" class="gradient-border-input">
 
             <button type="submit"
                     class="w-1/2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-pink-500 text-white font-bold py-3 rounded-xl shadow-md transition transform hover:scale-105">
-                Upload and Preview
+                Upload
             </button>
+        </div>
+
+        <div class="text-sm text-gray-500 mt-1">
+            <a href="{{ asset('/files/import_exeple.xlsx') }}" class="text-indigo-600 hover:underline">📄 Download sample file</a>
         </div>
 
         @error('excel_file')
-        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
         @enderror
     </form>
 
-    {{-- Или вручную добавить сотрудника --}}
-    <div class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Or add team members manually</h2>
-        <a href="{{route('onboarding.step', 'create_user')}}"
-           class="inline-block text-indigo-600 hover:text-indigo-800 underline font-medium">
-            Go to manual user addition form →
+{{--    --}}{{-- Или вручную добавить сотрудника --}}
+{{--    <div class="mb-6">--}}
+{{--        <h2 class="text-2xl font-semibold mb-2">Or add team members manually</h2>--}}
+{{--        <a href="{{ route('onboarding.step', 'create_user') }}"--}}
+{{--           class="inline-block text-indigo-600 hover:text-indigo-800 underline font-medium">--}}
+{{--            Go to manual user addition form →--}}
+{{--        </a>--}}
+{{--    </div>--}}
+
+
+
+    @if(session('success'))
+        <a href="{{ route('onboarding.step', 'finish') }}"
+           class="px-5 py-3 rounded-xl border text-indigo-600 font-medium hover:underline">
+            finish →
         </a>
-    </div>
-
-    {{-- Если Excel файл загружен и есть данные для предпросмотра --}}
-    @if(isset($previewUsers) && count($previewUsers) > 0)
-        <h3 class="text-xl font-bold mb-4">Preview Imported Users</h3>
-        <div class="overflow-x-auto">
-            <table class="w-full table-auto border-collapse border border-gray-300">
-                <thead>
-                <tr class="bg-gray-100">
-                    <th class="border border-gray-300 px-3 py-2 text-left">Full Name</th>
-                    <th class="border border-gray-300 px-3 py-2 text-left">Email</th>
-                    <th class="border border-gray-300 px-3 py-2 text-left">Grade</th>
-                    <th class="border border-gray-300 px-2 py-2 text-left">Specialization</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($previewUsers as $index => $user)
-                    <tr>
-                        <td class="border border-gray-300 px-3 py-2">{{ $user['full_name'] ?? '' }}</td>
-                        <td class="border border-gray-300 px-3 py-2">{{ $user['email'] ?? '' }}</td>
-                        <td class="border border-gray-300 px-3 py-2">
-                            <select name="users[{{ $index }}][grade]" class="w-full border rounded px-2 py-1">
-                                @foreach($grades as $grade)
-                                    <option value="{{ $grade }}">{{ $grade }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td class="border border-gray-300 px-3 py-2">
-                            <select name="users[{{ $index }}][specialization]" class="w-full border rounded px-2 py-1">
-                                @foreach($specializations as $specialization)
-                                    <option value="{{ $specialization }}">{{ $specialization }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+    @else
+        <div class="flex justify-end mt-8">
+            <a href="{{ route('onboarding.step', 'finish') }}"
+               class="px-5 py-3 rounded-xl border text-indigo-600 font-medium hover:underline">
+                Skip →
+            </a>
         </div>
-
-        {{-- Кнопка сохранить импорт --}}
-        <form method="POST" action="{{ route('onboarding.step.next', ['step' => 'save_imported_users']) }}" class="mt-6">
-            @csrf
-            <button type="submit"
-                    class="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-pink-500 text-white font-bold py-3 px-6 rounded-xl shadow-md transition transform hover:scale-105">
-                Save Imported Users
-            </button>
-        </form>
     @endif
+
 @endsection
