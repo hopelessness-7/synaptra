@@ -2,6 +2,8 @@
 
 namespace App\DTO;
 
+use Illuminate\Http\Request;
+
 class BaseDTO
 {
     public function __construct(array $data = [])
@@ -24,5 +26,10 @@ class BaseDTO
     public static function fromArray(array $data): static
     {
         return new static($data);
+    }
+
+    public static function fromRequest(Request $request): static
+    {
+        return new static($request->only(array_keys(get_class_vars(static::class))));
     }
 }

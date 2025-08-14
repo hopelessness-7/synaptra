@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="flex flex-col mb-6 space-y-2">
-        <span class="text-center text-sm font-medium text-gray-600">Step 5 of 5</span>
+        <span class="text-center text-sm font-medium text-gray-600">Step 3 of 3</span>
         <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
             <div class="bg-indigo-500 h-2 transition-all duration-500" style="width: 100%;"></div>
         </div>
@@ -24,10 +24,26 @@
 
         <x-user-form :grades="$grades" :specializations="$specializations" />
 
-        <button type="submit"
-                class="mt-6 w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-pink-500 text-white font-bold py-3 rounded-xl shadow-md transition transform hover:scale-105">
-            Save Users
-        </button>
-    </form>
 
+        <div class="grid grid-cols-5 gap-4 mt-8">
+            {{-- Back --}}
+            <a href="{{ route('onboarding.step', 'invite_team') }}"
+               class="px-5 py-3 text-center rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition col-span-1">
+                ← Back
+            </a>
+
+            {{-- Save Users --}}
+            <button type="submit"
+                    class="px-5 py-3 col-span-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-pink-500 text-white font-bold rounded-xl shadow-md transition transform hover:scale-105">
+                Save Users
+            </button>
+
+            {{-- Skip --}}
+            <a href="{{ route('onboarding.step', 'finish') }}"
+               class="px-5 py-3 text-center rounded-xl border text-indigo-600 font-medium hover:underline col-span-1">
+                Skip →
+            </a>
+        </div>
+
+    </form>
 @endsection

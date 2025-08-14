@@ -80,8 +80,8 @@
             newUser: {
                 full_name: '',
                 email: '',
-                grade: '',
-                specialization: '',
+                grade: 'intern',
+                specialization: 'frontend',
             },
             grades: @json($grades ?? ['intern']),
             specializations: @json($specializations ?? ['frontend']),
