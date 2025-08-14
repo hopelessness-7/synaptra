@@ -14,8 +14,7 @@ class StepManager
 
     public function handle(string $currentStep, Request $request): array
     {
-        $roleMode = $request->get('role_mode', 'standard');
-        $nextStep = $this->determineNextStep($currentStep, $roleMode);
+        $nextStep = $this->determineNextStep($currentStep);
         $model = null;
 
         if (!$nextStep) {
@@ -31,19 +30,14 @@ class StepManager
         return [$nextStep, $model];
     }
 
-    private function determineNextStep(string $step, string $roleMode): OnboardingStep
+    private function determineNextStep(string $step): OnboardingStep
     {
 
 
         return match ($step) {
             OnboardingStep::Welcome->value => OnboardingStep::CreateProject,
             OnboardingStep::CreateProject->value => OnboardingStep::CreateBoard,
-            OnboardingStep::CreateBoard->value => OnboardingStep::CreateRoles,
-            OnboardingStep::CreateRoles->value => $roleMode === 'custom'
-                ? OnboardingStep::CreateRolesCustom
-                : OnboardingStep::InviteTeam,
-            OnboardingStep::EditRolesStandard->value,
-            OnboardingStep::CreateRolesCustom->value => OnboardingStep::InviteTeam,
+            OnboardingStep::InviteTeam->value => OnboardingStep::InviteTeam,
             default => null,
         };
     }

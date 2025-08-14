@@ -13,7 +13,6 @@ class StepActionExecutor
     private array $entityToModuleMap = [
         'Project' => 'Project',
         'Board' => 'Kanban',
-        'Role' => 'Project',
     ];
 
     public function execute(string $step, Request $request): Model
@@ -37,7 +36,6 @@ class StepActionExecutor
         return match ($step) {
             OnboardingStep::CreateProject->value => 'Project',
             OnboardingStep::CreateBoard->value => 'Board',
-            OnboardingStep::CreateRoles->value => 'Role',
             default => throw new \InvalidArgumentException("Unknown step: $step"),
         };
     }

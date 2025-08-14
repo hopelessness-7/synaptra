@@ -24,7 +24,7 @@ return [
     | Handles everything related to project management such as:
     | - Creating and updating projects
     | - Fetching project details
-    | - Managing project settings, roles, and permissions
+    | - Managing project settings
     | - Team management
     |
     | Example endpoint: POST /projects/store, GET /projects/{id}

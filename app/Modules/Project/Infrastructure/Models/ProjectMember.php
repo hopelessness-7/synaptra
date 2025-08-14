@@ -20,7 +20,6 @@ class ProjectMember extends Model
     protected $fillable = [
         'project_id',
         'user_id',
-        'role_id',
         'grade',
         'specialization',
         'load',
@@ -40,10 +39,5 @@ class ProjectMember extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function role(): BelongsTo
-    {
-        return $this->belongsTo(ProjectRole::class);
     }
 }

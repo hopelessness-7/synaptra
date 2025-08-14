@@ -9,4 +9,5 @@ return [
     Modules\Project\Providers\ProjectServiceProvider::class,
     Modules\Kanban\Providers\KanbanServiceProvider::class,
     Modules\Common\Providers\CommonServiceProvider::class,
+    Modules\AccessControl\Providers\AccessControlServiceProvider::class,
 ];

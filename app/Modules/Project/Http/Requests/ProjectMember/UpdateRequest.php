@@ -14,7 +14,6 @@ class UpdateRequest extends BaseFormRequest
         return [
             'project_id'      => ['sometimes', 'integer', 'exists:projects,id'],
             'user_id'         => ['sometimes', 'integer', 'exists:users,id'],
-            'role_id'         => ['sometimes', 'integer', 'exists:roles,id'],
             'grade'           => ['sometimes', 'string', new Enum(GradeEnum::class)],
             'specialization'  => ['sometimes', 'string', new Enum(SpecializationEnum::class)],
             'load'            => ['sometimes', 'numeric', 'max:255'],

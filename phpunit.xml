@@ -12,6 +12,7 @@
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
             <directory>app/Modules/Auth/Test/Feature</directory>
+            <directory>app/Modules/AccessControl/Test/Feature</directory>
         </testsuite>
     </testsuites>
     <source>
