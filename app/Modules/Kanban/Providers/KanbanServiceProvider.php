@@ -2,9 +2,9 @@
 
 namespace Modules\Kanban\Providers;
 
+use App\Modules\Kanban\Infrastructure\Events\BoardUpdatedEvent;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use Modules\Auth\Infrastructure\Events\BoardUpdatedEvent;
 use Modules\Auth\Infrastructure\Listeners\RefreshBoardCacheListener;
 use Modules\Kanban\Infrastructure\Models\Board;
 use Modules\Kanban\Infrastructure\Models\Column;
@@ -23,6 +23,7 @@ class KanbanServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
+        $this->loadRoutesFrom(__DIR__ . '/../Http/web.php');
         $this->loadMigrationsFrom(__DIR__ . '/../Infrastructure/Database/Migrations');
 
         Task::observe(TaskObserver::class);

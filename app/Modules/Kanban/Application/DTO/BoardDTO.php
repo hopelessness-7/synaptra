@@ -6,6 +6,7 @@ use App\DTO\BaseDTO;
 
 class BoardDTO extends BaseDTO
 {
+    public ?int $id;
     public int $project_id;
 
     public string $title;

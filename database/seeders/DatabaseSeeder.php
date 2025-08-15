@@ -10,6 +10,7 @@ use App\Modules\Project\Infrastructure\Models\ProjectMember;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Modules\AccessControl\Infrastructure\Models\Role;
 use Modules\Kanban\Infrastructure\Models\Board;
 use Modules\Kanban\Infrastructure\Models\Column;
 use Modules\Kanban\Infrastructure\Models\Task;
@@ -27,8 +28,9 @@ class DatabaseSeeder extends Seeder
         User::factory()->count(2500)->create();
 
         User::factory()->create([
-           'email' => 'admin@admin.com',
-           'password' => 'password',
+            'email' => 'admin@admin.com',
+            'password' => 'password',
+            'role_id' => Role::where('name', 'admin')->first()->id,
         ]);
 
         $users = User::all();

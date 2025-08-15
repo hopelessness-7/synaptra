@@ -2,7 +2,7 @@
 
 namespace Modules\Kanban\Infrastructure\Observers;
 
-use Modules\Auth\Infrastructure\Events\BoardUpdatedEvent;
+use App\Modules\Kanban\Infrastructure\Events\BoardUpdatedEvent;
 use Modules\Kanban\Infrastructure\Models\Board;
 
 class BoardObserver

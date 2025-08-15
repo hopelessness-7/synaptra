@@ -42,7 +42,7 @@
                                         <p class="text-sm text-gray-500">Project: {{ $board->project->name }}</p>
                                         <p class="text-sm">Tasks: {{ $board->tasks_count }}</p>
                                     </div>
-                                    <a href="#" class="text-indigo-600 text-sm mt-2 inline-block">Go to board →</a>
+                                    <a href="{{route('kanban.boards.show', $board)}}" class="text-indigo-600 text-sm mt-2 inline-block">Go to board →</a>
                                 </div>
                             </div>
                         @endforeach

@@ -2,8 +2,8 @@
 
 namespace Modules\Kanban\Infrastructure\Observers;
 
+use App\Modules\Kanban\Infrastructure\Events\BoardUpdatedEvent;
 use App\Modules\Kanban\Infrastructure\Services\TaskLogService;
-use Modules\Auth\Infrastructure\Events\BoardUpdatedEvent;
 use Modules\Kanban\Infrastructure\Models\Task;
 
 class TaskObserver

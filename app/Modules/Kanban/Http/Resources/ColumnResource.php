@@ -16,7 +16,7 @@ class ColumnResource extends JsonResource
             'title' => $this->title,
             'position' => $this->position,
 
-            'tasks_count' => $this->tasks()->count(),
+            'tasks_count' => $this->tasks_count,
 
             'tasks' => TaskShowResource::collection($this->whenLoaded('tasks'))
         ];
