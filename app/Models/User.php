@@ -6,7 +6,6 @@ namespace App\Models;
 use App\Enums\UserStatusEnum;
 use App\Modules\Auth\Infrastructure\Models\LoginHistory;
 use App\Modules\Auth\Infrastructure\Models\UserDevice;
-use App\Modules\Common\Domain\Enums\OnboardingStep;
 use App\Modules\Common\Domain\Traits\Searchable;
 use App\Modules\Project\Infrastructure\Models\Project;
 use App\Modules\Project\Infrastructure\Models\ProjectMember;
@@ -35,7 +34,6 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'password',
         'status',
-        'onboarding_step',
         'role_id'
     ];
 
@@ -77,13 +75,6 @@ class User extends Authenticatable implements JWTSubject
     public function projectMembers(): HasMany
     {
         return $this->hasMany(ProjectMember::class);
-    }
-
-    public function getOnboardingStepEnumAttribute(): ?OnboardingStep
-    {
-        return $this->onboarding_step
-            ? OnboardingStep::from($this->onboarding_step)
-            : null;
     }
 
     public function getHistoryLogin(): HasMany

@@ -21,7 +21,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
-        $this->loadRoutesFrom(__DIR__ . '/../Http/web.php');
         $this->loadMigrationsFrom(__DIR__ . '/../Infrastructure/Database/Migrations');
         $this->commands([
             CleanBlacklist::class
