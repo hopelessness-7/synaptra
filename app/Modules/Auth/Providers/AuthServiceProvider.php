@@ -4,6 +4,7 @@ namespace App\Modules\Auth\Providers;
 
 use App\Modules\Auth\Application\Commands\CleanBlacklist;
 use Illuminate\Support\ServiceProvider;
+use Modules\Auth\Providers\AuthEventServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -22,8 +23,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
         $this->loadMigrationsFrom(__DIR__ . '/../Infrastructure/Database/Migrations');
+
         $this->commands([
             CleanBlacklist::class
         ]);
+
+        $this->app->register(AuthEventServiceProvider::class);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Modules\Kanban\Providers;
 
+use App\Modules\Kanban\Infrastructure\Events\BoardUpdatedEvent;
+use App\Modules\Kanban\Infrastructure\Listeners\RefreshBoardCacheListener;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use Modules\Auth\Infrastructure\Events\BoardUpdatedEvent;
-use Modules\Auth\Infrastructure\Listeners\RefreshBoardCacheListener;
 use Modules\Kanban\Infrastructure\Models\Board;
 use Modules\Kanban\Infrastructure\Models\Column;
 use Modules\Kanban\Infrastructure\Models\Task;

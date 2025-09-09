@@ -10,4 +10,5 @@ return [
     Modules\Kanban\Providers\KanbanServiceProvider::class,
     Modules\Common\Providers\CommonServiceProvider::class,
     Modules\AccessControl\Providers\AccessControlServiceProvider::class,
+    Modules\Auth\Providers\AuthEventServiceProvider::class,
 ];
