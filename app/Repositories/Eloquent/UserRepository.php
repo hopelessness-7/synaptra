@@ -81,4 +81,9 @@ class UserRepository extends BaseRepository
 
         return $user;
     }
+
+    public function createProjectWithRelation(User $user, array $data)
+    {
+        return $user->projects()->create($data);
+    }
 }

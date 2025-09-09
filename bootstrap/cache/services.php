@@ -43,6 +43,7 @@
     39 => 'Modules\\Kanban\\Providers\\KanbanServiceProvider',
     40 => 'Modules\\Common\\Providers\\CommonServiceProvider',
     41 => 'Modules\\AccessControl\\Providers\\AccessControlServiceProvider',
+    42 => 'Modules\\Auth\\Providers\\AuthEventServiceProvider',
   ),
   'eager' => 
   array (
@@ -73,6 +74,7 @@
     24 => 'Modules\\Kanban\\Providers\\KanbanServiceProvider',
     25 => 'Modules\\Common\\Providers\\CommonServiceProvider',
     26 => 'Modules\\AccessControl\\Providers\\AccessControlServiceProvider',
+    27 => 'Modules\\Auth\\Providers\\AuthEventServiceProvider',
   ),
   'deferred' => 
   array (
@@ -154,6 +156,7 @@
     'Illuminate\\Foundation\\Console\\ChannelMakeCommand' => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
     'Illuminate\\Foundation\\Console\\ClassMakeCommand' => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
     'Illuminate\\Foundation\\Console\\ComponentMakeCommand' => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
+    'Illuminate\\Foundation\\Console\\ConfigMakeCommand' => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
     'Illuminate\\Foundation\\Console\\ConfigPublishCommand' => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
     'Illuminate\\Foundation\\Console\\ConsoleMakeCommand' => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
     'Illuminate\\Routing\\Console\\ControllerMakeCommand' => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',

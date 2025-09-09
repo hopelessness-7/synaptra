@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Infrastructure\Events;
+namespace App\Modules\Kanban\Infrastructure\Events;
 
 
 class BoardUpdatedEvent
